@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add navigation</title>
+</head>
+<body>
+
+    <form action="/admin/user/doAdd" method="post" enctype="multipart/form-data">
+        
+        Title：<input type="text" name="title" id="title" />
+        <br>
+        <br>
+
+        Picture1：<input type="file" name="pic1" id="pic1" />
+        <br>
+        <br>
+        Picture2：<input type="file" name="pic2" id="pic2" />
+        <br>
+        <br>
+
+        Description：<textarea name="desc" id="desc" cols="30" rows="10"></textarea>
+        <br>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

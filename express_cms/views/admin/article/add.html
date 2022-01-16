@@ -1,0 +1,107 @@
+<%- include ("../public/page_header.html") %>
+
+<script type="text/javascript" src="/admin/bootstrap/js/bootstrap.js"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet"
+    type="text/css" />
+<script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js"></script>
+
+<script type="text/javascript" src="/wysiwyg-editor/js/languages/zh_cn.js"></script>
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Add the content
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive input-form articel_content">
+            <form action="/<%=adminPath%>/article/doAdd" method="post" enctype="multipart/form-data">
+
+                <ul id="myTab" class="nav nav-tabs">
+
+                    <li class="active">
+                        <a href="#index" data-toggle="tab">Basic settings</a></li>
+                    <li>
+                        <a href="#info" data-toggle="tab">
+                            Content details
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#seo" data-toggle="tab">
+                            SEO settings
+                        </a>
+                    </li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+
+                    <div class="tab-pane fade  in active" id="index">
+                        <ul>
+
+                            <li>
+                                <span>Classification: </span>
+                                <select name="cid" id="cid">
+                                    
+                                    <%for(var i=0;i<articleCate.length;i++){%>
+                                         <option value="<%=articleCate[i]._id%>"><%=articleCate[i].title%></option>
+                                         <%for(var j=0;j<articleCate[i].items.length;j++){%>
+                                            <option value="<%=articleCate[i].items[j]._id%>">　--<%=articleCate[i].items[j].title%></option>
+                                         <%}%>
+                                    <%}%>
+                                   
+                                </select>
+                            </li>
+                            <li> <span>Content title: </span> <input type="text" name="title" class="title" /></li>
+
+                            <li> <span>Jump address: </span> <input type="text" name="link" /> <i>Note: if it is not empty, click the article to jump to this address</i></li>
+
+                            <li> <span>Cover picture:</span> <input type="file" name="article_img" /></li>
+                            <li> <span>Author: </span> <input type="text" name="author" /></li>
+                            <li> <span>Sort: </span> <input type="text" name="sort" value="1000" /></li>
+                            <li> <span>Status: </span> <input type="radio" name="status" checked value="1" id="a" />
+                                <label for="a">display</label> <input type="radio" name="status" value="0" id="b" /><label
+                                    for="b">hide</label> 　</li>
+
+                            <li> <span>Join recommendation:</span>　
+                                <input type="checkbox" value="1" name="is_best" /> Boutique
+                                <input type="checkbox" value="1" name="is_hot" /> Hot
+                            </li>
+                            
+
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="info">
+                        <textarea name="content" id="content" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="tab-pane fade" id="seo">
+                        <ul>
+                            <li> <span>key word: </span> <input type="text" name="keywords" class="title"/></li>
+                            <li> <span>SEO description:</span> <textarea name="description" id="description" cols="84"
+                                    rows="4"></textarea></li>
+                        </ul>
+                    </div>
+
+                    <br>
+                    <br>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+    new FroalaEditor('#content', {
+          height: 260,
+          language: 'en_gb',
+          imageUploadURL: '/<%=adminPath%>/article/doUploadImage',
+    });
+</script>
+</body>
+
+</html>

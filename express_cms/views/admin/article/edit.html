@@ -1,0 +1,119 @@
+<%- include ("../public/page_header.html") %>
+
+<script type="text/javascript" src="/admin/bootstrap/js/bootstrap.js"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet"
+    type="text/css" />
+<script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js"></script>
+
+<script type="text/javascript" src="/wysiwyg-editor/js/languages/zh_cn.js"></script>
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Modification content
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive input-form articel_content">
+            <form action="/<%=adminPath%>/article/doEdit" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<%=list._id%>" />
+                <ul id="myTab" class="nav nav-tabs">
+
+                    <li class="active">
+                        <a href="#index" data-toggle="tab">Basic settings</a></li>
+                    <li>
+                        <a href="#info" data-toggle="tab">
+                            Content details
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#seo" data-toggle="tab">
+                            SEO settings
+                        </a>
+                    </li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+
+                    <div class="tab-pane fade  in active" id="index">
+                        <ul>
+
+                            <li>
+                                <span>Classification: </span>
+                                <select name="cid" id="cid">
+                                    
+                                    <%for(var i=0;i<articleCate.length;i++){%>
+                                         <option value="<%=articleCate[i]._id%>" <%if(list.cid.toString()==articleCate[i]._id.toString()){%>selected<%}%> ><%=articleCate[i].title%></option>
+
+
+                                         <%for(var j=0;j<articleCate[i].items.length;j++){%>
+                                            <option value="<%=articleCate[i].items[j]._id%>" <%if(list.cid.toString()==articleCate[i].items[j]._id.toString()){%>selected<%}%>  >　--<%=articleCate[i].items[j].title%></option>
+                                         <%}%>
+                                    <%}%>
+                                   
+                                </select>
+                            </li>
+                            <li> <span>Content title: </span> <input type="text" name="title" value="<%=list.title%>"  class="title"/></li>
+
+                            <li> <span>Jump address: </span> <input type="text" name="link" value="<%=list.link%>"/>  <i>Note: if it is not empty, click the article to jump to this address</i></li>
+
+                            <li> <span>Cover picture:</span>
+                                 <input type="file" name="article_img" />
+
+                                 <%if(list.article_img){%>
+                                    <br><br>
+                                    <span></span>
+                                     <img src="/<%=list.article_img%>" width="80" />
+                                 <%}%>
+
+                            </li>
+                            <li> <span>Author: </span> <input type="text" name="author"  value="<%=list.author%>" /></li>
+                            <li> <span>Sort: </span> <input type="text" name="sort" value="<%=list.sort%>" /></li>
+                          
+                            <li> <span>Status:</span>
+                                <input type="radio" name="status" <% if (list.status==1){%> checked <%}%> value="1" id="a" /> <label for="a">display</label>
+                                <input type="radio" name="status" <% if (list.status==0){%> checked <%}%>  value="0" id="b" /><label for="b">hide</label>
+                            </li>
+
+                            <li> <span>Join recommendation:</span>　
+                                <input type="checkbox" value="1" name="is_best"  <% if (list.is_best==1){%> checked <%}%> /> Boutique
+                                <input type="checkbox" value="1" name="is_hot"   <% if (list.is_hot==1){%> checked <%}%>/> Hot
+                            </li>
+                           
+
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="info">
+                        <textarea name="content" id="content" cols="30" rows="10"><%=list.content%></textarea>
+                    </div>
+                    <div class="tab-pane fade" id="seo">
+                        <ul>
+                            <li> <span>keyword: </span> <input type="text" name="keywords" value="<%=list.keywords%>" class="title"/></li>
+                            <li> <span>SEO description:</span> 
+                                <textarea name="description" id="description" cols="84" rows="4"><%=list.description%></textarea>                            
+                            </li>
+                        </ul>
+                    </div>
+
+                    <br />
+                    <br />
+                    <button type="submit" class="btn btn-primary">Submit</button>                    
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+    new FroalaEditor('#content', {
+          height: 260,
+          language: 'en_gb',
+          imageUploadURL: '/<%=adminPath%>/article/doUploadImage',
+    });
+</script>
+</body>
+
+</html>

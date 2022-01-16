@@ -1,0 +1,49 @@
+<%- include ("../public/page_header.html") %>
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Modify rotation chart
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive input-form">
+            <form action="/<%=adminPath%>/focus/doEdit" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<%=list._id%>" />
+                <ul>
+                    <li> <span>Classification: </span>
+                        <select name="type" id="type">
+                            <option value="1" <%if(list.type==1){%>selected<%}%> >Website</option>
+                            <option value="2"  <%if(list.type==2){%>selected<%}%> >APP</option>
+                            <option value="3" <%if(list.type==3){%>selected<%}%> >Applet</option>
+                        </select>
+                    </li>
+                    <li>  <span>Name:</span> <input type="text" name="title" value="<%=list.title%>" />
+                    </li>
+                    <li> <span>Jump address:</span> <input type="text" name="link" value="<%=list.link%>" /></li>
+                    <li> <span>Rotation chart:</span> <input type="file" name="focus_img" />
+                        <br><br>
+                        <span></span><img src="/<%=list.focus_img%>" width="80" />
+                    </li>
+                    <li> <span>Sort:</span> <input type="text" name="sort" value="<%=list.sort%>" /></li>
+
+                    <li> <span>Status:</span>
+                        <input type="radio" name="status" <% if (list.status==1){%> checked <%}%> value="1" id="a" /> <label for="a">Display</label>
+                        <input type="radio" name="status" <% if (list.status==0){%> checked <%}%>  value="0" id="b" /><label for="b">Hide</label>
+                    </li>
+                    <li>
+                        <br/>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </li>
+
+                </ul>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+
+</html>

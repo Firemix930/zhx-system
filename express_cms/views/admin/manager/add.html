@@ -1,0 +1,68 @@
+<%- include ("../public/page_header.html") %>
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Add admin
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive input-form">
+            <form action="/<%=adminPath%>/manager/doAdd" method="post" id="form">
+
+                <ul>
+                    <li> <span>Admin name:</span><input type="text" name="username" id="username" /></li>
+
+                    <li> <span>Admin password:</span> <input type="password" name="password" id="password" /></li>
+                    <li> <span>Confirm password:</span> <input type="password" name="rpassword" id="rpassword" /></li>
+                    <li> <span>Admin phone:</span> <input type="text" name="mobile" id="mobile" /></li>
+                    <li> <span>Admin mailbox:</span> <input type="text" name="email" id="email" /></li>
+
+                    <li> <span>Status:</span>
+                        <input type="radio" name="status" checked value="1" id="a" /> <label for="a">Display</label>
+                        <input type="radio" name="status" value="0" id="b" /><label for="b">Hide</label>
+                    </li>
+                    <li>
+                        <div class="error"> </div>
+                        <br />
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </li>
+                    
+
+                </ul>
+
+
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+
+    $("#form").submit(function () {
+
+        var username = $("#username").val()
+        var password = $("#password").val()
+        var rpassword = $("#rpassword").val()
+        
+        if (username.length == 0) {
+            $(".error").html("Error:User name cannot be empty")
+            return false
+        }
+        if (password.length < 6) {
+            $(".error").html("Error:Password length cannot be less than 6 digits")
+            return false
+        }
+        if (password != rpassword) {
+            $(".error").html("Error:The password and confirmation password are inconsistent")
+            return false
+        }
+        $(".error").html("")
+        return true
+    })
+</script>
+</body>
+
+</html>

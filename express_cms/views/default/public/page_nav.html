@@ -1,0 +1,24 @@
+<header role="banner" id="fh5co-header">
+			
+    <!-- <div class="row"> -->
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <!-- Mobile Toggle Menu Button -->
+            <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+            <a class="navbar-brand" href="./" id="sh" hidden="hidden"><img src="/default/images/zesql4.png" />House Leasing System</a>
+
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+             
+                <% for(var i=0;i<navList.length;i++){ %>
+                    <li  <%if(navList[i].link==pathname){%> class="active" <%}%>>
+                        <a href="<%=navList[i].link%>"   <%if(navList[i].is_opennew==2){%>target="_blank"<%}%>><span><%=navList[i].title%></span></a>
+                    </li>
+                <%}%>
+                
+            </ul>
+        </div>
+    </nav>
+    <!-- </div> -->			
+</header>

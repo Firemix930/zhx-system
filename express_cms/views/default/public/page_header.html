@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+		<title><%=title%></title>		
+		<%if(keywords){%>
+			<meta name="Keywords" content="<%=keywords%>" />
+		<%}else{%>
+			<meta name="Keywords" content="<%=title%>" />
+		<%}%>
+		<%if(description){%>
+			<meta name="Description" content="<%=description%>" />
+		<%}else{%>
+			<meta name="Description" content="<%=title%>" />
+		<%}%>
+
+		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+		<link rel="shortcut icon" href="favicon.ico">
+
+		<!-- Bootstrap  -->
+		<link rel="stylesheet" href="/default/style/bootstrap.css">
+
+		<link rel="stylesheet" href="/default/style/style_1_4.css">
+
+	</head>

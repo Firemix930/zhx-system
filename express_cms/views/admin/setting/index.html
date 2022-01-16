@@ -1,0 +1,42 @@
+<%- include ("../public/page_header.html") %>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        System settings
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive input-form">
+            <form action="/<%=adminPath%>/setting/doEdit" method="post" id="form" enctype="multipart/form-data">
+
+                <ul>                  
+                    <li>  <span>Website title:</span> <input type="text" class="input" name="site_title" value="<%=list.site_title%>"/></li>    
+                    <li> <span>Wbesite logo:</span>  <input type="file" name="site_logo"/>   
+                        <br>
+                        <span> </span> <img class="pic" src="/<%=list.site_logo%>" /> </li>
+                    <li>  <span>Website Keyword:</span> <input type="text"  class="input" name="site_keywords"  value="<%=list.site_keywords%>"/></li>
+                    <li> <span>Website description:</span>  <textarea name="site_description" style="width:600px;"><%=list.site_description%></textarea></li>
+                    <li> <span>Default picture:</span>  <input type="file" name="no_picture" />   
+                        <br />                     
+                        <span> </span> <img class="pic" src="/<%=list.no_picture%>" /> 
+                    
+                    </li> 
+                     <li> <span>Filing information:</span> <input type="text" class="input" name="site_icp" value="<%=list.site_icp%>"/></li>
+                     <li> <span>Website phone:</span> <input type="text" class="input" name="site_tel" value="<%=list.site_tel%>"/></li>
+                     <li> <span>Search keywords:</span> <input type="text" class="input" name="search_keywords" value="<%=list.search_keywords%>"/></li>
+                     <li> <span>Statistical code:</span> <input type="text" class="input" name="tongji_code" value="<%=list.tongji_code%>"/></li>
+                    <li>
+                        <br/>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </li>
+
+                </ul>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,143 @@
+<%- include("./public/page_header.html")%>
+
+	<body id="ios">
+		<%- include("./public/page_nav.html")%>
+		<div id="fh5co-press">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="cat_title">
+							<div class="wrapper">
+								<div class="to-animate">
+									<h2>Latest house rental</h2>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<div class="row set">
+					<div class="col-md-6 text">
+						<div class="to-animate">
+							<div class="fh5co-press-text">
+								<h3 class="h3 fh5co-press-title"><i class="id">1</i>Due soon</h3>
+
+								<%for(var i=0;i<list1.length;i++){%>									
+									<%if(list1[i].link==""){%>
+										<a href="content_<%=list1[i]._id%>.html" target="_blank" class="list-group-item active"><span class="badge">New</span><%=list1[i].title%></a>									
+									<%}else{%>
+										<a href="<%=list1[i].link%>" target="_blank" class="list-group-item active"><span class="badge">New</span><%=list1[i].title%></a>									
+									<%}%>
+								<%}%>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="to-animate">
+							<div class="fh5co-press-text">
+								<h3 class="h3 fh5co-press-title"><i class="id">2</i>Excellent environment</h3>
+
+								
+								<%for(var i=0;i<list2.length;i++){%>									
+									<%if(list2[i].link==""){%>
+										<a href="content_<%=list2[i]._id%>.html" target="_blank" class="list-group-item"><span class="badge"></span><%=list2[i].title%></a>
+									<%}else{%>
+										<a href="<%=list2[i].link%>" target="_blank" class="list-group-item"><span class="badge"></span><%=list2[i].title%></a>										
+									<%}%>
+								<%}%>
+								
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="fh5co-pricing">
+			<div class="container">
+				<div class="row set">
+					<div class="col-md-6 text">
+						<div class="to-animate">
+							<div class="fh5co-press-text">
+								<h3 class="h3 fh5co-press-title"><i class="id">3</i>Convenient transportation</h3>
+
+
+								
+								<%for(var i=0;i<list3.length;i++){%>									
+									<%if(list3[i].link==""){%>
+										<a href="content_<%=list3[i]._id%>.html" target="_blank" class="list-group-item"><span class="badge"></span><%=list3[i].title%></a>
+									<%}else{%>
+										<a href="<%=list3[i].link%>" target="_blank" class="list-group-item"><span class="badge"></span><%=list3[i].title%></a>										
+									<%}%>
+								<%}%>
+
+							
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="to-animate">
+							<div class="fh5co-press-text">
+								<h3 class="h3 fh5co-press-title"><i class="id">4</i>Have a picture</h3>
+
+								<%for(var i=0;i<list4.length;i++){%>									
+									<%if(list4[i].link==""){%>
+										<a href="content_<%=list4[i]._id%>.html" target="_blank" class="list-group-item"><span class="badge"></span><%=list4[i].title%></a>
+									<%}else{%>
+										<a href="<%=list4[i].link%>" target="_blank" class="list-group-item"><span class="badge"></span><%=list4[i].title%></a>										
+									<%}%>
+								<%}%>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="fh5co-our-services">
+			<div class="container">
+				<div class="row set">
+					<div class="col-md-6 text">
+						<div class="to-animate">
+							<div class="fh5co-press-text">
+								<h3 class="h3 fh5co-press-title"><i class="id">5</i>Discount rental</h3>
+
+								<%for(var i=0;i<list5.length;i++){%>									
+									<%if(list5[i].link==""){%>
+										<a href="content_<%=list5[i]._id%>.html" target="_blank" class="list-group-item"><span class="badge"></span><%=list5[i].title%></a>
+									<%}else{%>
+										<a href="<%=list5[i].link%>" target="_blank" class="list-group-item"><span class="badge"></span><%=list5[i].title%></a>										
+									<%}%>
+								<%}%>								
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="to-animate">
+							<div class="fh5co-press-text">
+								<h3 class="h3 fh5co-press-title"><i class="id">6</i>Complete facilities</h3>
+
+								<%for(var i=0;i<list6.length;i++){%>									
+									<%if(list6[i].link==""){%>
+										<a href="content_<%=list6[i]._id%>.html" target="_blank" class="list-group-item"><span class="badge"></span><%=list6[i].title%></a>
+									<%}else{%>
+										<a href="<%=list6[i].link%>" target="_blank" class="list-group-item"><span class="badge"></span><%=list6[i].title%></a>										
+									<%}%>
+								<%}%>	
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+		<%- include("./public/page_footer.html")%>
+		<script type="text/javascript" src="/default/js/jquery.min.js"></script>
+		<script type="text/javascript" src="/default/js/bootstrap.min.js"></script>
+	</body>
+
+</html>

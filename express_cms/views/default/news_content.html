@@ -1,0 +1,38 @@
+<%- include("./public/page_header.html")%>
+
+	<body id="ios">
+
+		<%- include("./public/page_nav.html")%>
+
+		<div id="fh5co-press" data-section="press">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="cat_title">
+							<div class="wrapper">
+								<div class="to-animate">
+									<h2><a href="/">Home page</a>-<a href="/news.html">Housing news</a></h2>
+									<hr>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<h2 class="title"><%=list.title%></h2>
+
+				<div class="content">
+					<%-list.content%>
+				</div>
+
+			</div>
+		</div>
+
+		<hr>
+		<%- include("./public/page_footer.html")%>
+		<script type="text/javascript" src="/default/js/jquery.min.js"></script>
+		<script type="text/javascript" src="/default/js/bootstrap.min.js"></script>
+	</body>
+
+</html>

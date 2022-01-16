@@ -1,0 +1,79 @@
+<%- include ("../public/page_header.html")%>
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+        <a href="/<%=adminPath%>/articleCate/add" class="btn btn-primary">Add classification</a>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr class="th">
+                    <th>Classification name</th>
+                    <th>Link address</th>
+                    <th class="text-center">Sort</th>
+                    <th class="text-center">State</th>
+                    <th class="text-center">Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <%for(var i=0;i<list.length;i++){%>
+                    <tr>
+                        <td><%=list[i].title%></td>
+
+                        <td><%=list[i].link%></td>
+
+                        <td>
+                            <span class="chSpanNum" data-id="<%=list[i]._id%>" data-model="ArticleCate"
+                                data-field="sort"><%=list[i].sort%></span>
+                        </td>
+                        <td class="text-center">
+                            <%if(list[i].status==1){%>
+                            <img src="/admin/images/yes.gif" class="chStatus" data-id="<%=list[i]._id%>" data-model="ArticleCate"
+                                data-field="status" />
+
+                            <%}else{%>
+                            <img src="/admin/images/no.gif" class="chStatus" data-id="<%=list[i]._id%>" data-model="ArticleCate"
+                                data-field="status" />
+                            <%}%>                  
+                        </td>                                    
+                        <td class="text-center">
+                            <a href="/<%=adminPath%>/articleCate/edit?id=<%=list[i]._id%>">Modify</a>　　
+                            <a class="delete" href="/<%=adminPath%>/articleCate/delete?id=<%=list[i]._id%>">Delete</a>
+                        </td>
+                    </tr>     
+                    
+                    
+                    <%for(var j=0;j<list[i].items.length;j++){%>
+                        <tr>
+                            <td>　　<%=list[i].items[j].title%></td>
+    
+                            <td><%=list[i].items[j].link%></td>
+    
+                            <td>
+                                <span class="chSpanNum" data-id="<%=list[i].items[j]._id%>" data-model="ArticleCate"
+                                    data-field="sort"><%=list[i].items[j].sort%></span>
+                            </td>
+                            <td class="text-center">
+                                <%if(list[i].status==1){%>
+                                <img src="/admin/images/yes.gif" class="chStatus" data-id="<%=list[i].items[j]._id%>" data-model="ArticleCate"
+                                    data-field="status" />
+    
+                                <%}else{%>
+                                <img src="/admin/images/no.gif" class="chStatus" data-id="<%=list[i].items[j]._id%>" data-model="ArticleCate"
+                                    data-field="status" />
+                                <%}%>                  
+                            </td>                                    
+                            <td class="text-center">
+                                <a href="/<%=adminPath%>/articleCate/edit?id=<%=list[i].items[j]._id%>">Modify</a>　　
+                                <a class="delete" href="/<%=adminPath%>/articleCate/delete?id=<%=list[i].items[j]._id%>">Delete</a>
+                            </td>
+                        </tr>
+                        
+                    <%}%>
+                <%}%>
+            </tbody>
+        </table>
+    </div>
+
+</div>

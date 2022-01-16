@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>User login</title>
+  
+	<link rel="stylesheet" href="/admin/css/login.css"> 
+   </head>
+<body>
+<div class="container">
+        <div id="login">
+                <form action="/<%=adminPath%>/login/doLogin" method="post" id="myform">
+                    <input type="hidden" name="ajaxlogin" id="ajaxlogin">
+                    <input type="hidden" name="ajaxcode" id="ajaxcode">
+                    <div class="l_title">Background management system login</div>
+                    <dl>
+                        <dd>Admin name：<input class="text" type="text" name="username" id="username"></dd>
+                        <dd>Admin password：<input class="text" type="password" name="password" id="password"></dd>
+                        <dd>Code：<input id="verify" type="text" name="verify">
+                            <img id="verify_img" src="/<%=adminPath%>/login/verify" title="invisibility? Click refresh" onclick="javascript:this.src='/<%=adminPath%>/login/verify?mt='+Math.random()">
+                         </dd>			
+                        <dd><input type="submit" class="submit" name="dosubmit" value=""></dd>			
+                    </dl>
+                </form>
+            </div>
+</div>
+
+</body>
+</html>

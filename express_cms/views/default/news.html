@@ -1,0 +1,68 @@
+<%- include("./public/page_header.html")%>
+
+<body id="ios">
+
+	<%- include("./public/page_nav.html")%>
+	<div id="fh5co-press" data-section="testimonials">
+		<div class="container">
+
+			<section id="newslist">
+				<div class="cat_title">
+					<div class="wrapper">
+						<div class="to-animate">
+							<h2>Housing news</h2>
+							<hr>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="container">
+					<div class="news">
+						<% for(var i=0; i < newsList.length; i++){%>
+						<div class="row">
+							<div class="col-md-12 text">
+								<div class="to-animate">
+									<li>
+										<div class="newslist">
+											<a href="content_<%=newsList[i]._id%>.html"><%=newsList[i].title%> </a>
+
+											<span><%= formatTime(newsList[i].add_time)%></span>
+											<p>[<a
+													href="news.html?cid=<%=newsList[i].cid%>"><%=newsList[i].cate[0].title%></a>]<%=newsList[i].description%>
+											</p>
+										</div>
+									</li>
+								</div>
+							</div>
+						</div>
+
+						<%}%>
+						</div>
+						
+						<div class="pagination" id="pagination">
+
+						</div>
+						
+				</section>
+
+				</div>
+			</div>
+			<script type="text/javascript" src="/default/js/jquery.min.js"></script>
+			<script type="text/javascript" src="/admin/js/jqPaginator.js"></script>
+			<script>
+				$('#pagination').jqPaginator({
+					totalPages: <%=totalPages%>,
+					visiblePages: 5,
+					currentPage: <%=page%>,
+					onPageChange: function (num, type) {
+						if(type=="change"){
+							location.href="news.html?page="+num+"&cid=<%=cid%>";
+						}						
+					}
+				})
+			</script>
+			<hr>
+			<%- include("./public/page_footer.html")%>
+
+</html>

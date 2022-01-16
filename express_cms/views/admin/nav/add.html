@@ -1,0 +1,57 @@
+<%- include ("../public/page_header.html") %>
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Add navigation
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive input-form">
+            <form action="/<%=adminPath%>/nav/doAdd" method="post" id="form">
+
+                <ul>
+                    <li> <span>Navigation name:</span> <input type="text" name="title" /></li>
+                    <li> <span>Navigation link address:</span> <input type="text" name="link" /></li>
+                    <li> <span>Navigation position: </span>
+
+                        <select name="position" id="position">
+                            <option value="1">Top</option>
+                            <option value="2" selected>Middle</option>
+                            <option value="3">Bottom</option>
+                        </select>
+                    </li>
+
+                    <li> <span>A new window opens: </span>
+                        <select name="is_opennew" id="is_opennew">
+                            <option value="1">No</option>
+                            <option value="2">Yes</option>
+                        </select>
+
+                    <li> <span>Sort:</span> <input type="text" name="sort" value="10" style="width:60px;" /></li>
+
+                    <li> <span>State: </span> <input type="radio" name="status" checked value="1" id="a" /> <label
+                            for="a">Display</label> <input type="radio" name="status" value="0" id="b" /><label
+                            for="b">Hide</label> 　
+                        
+                    </li>
+                    <li>
+                        <br />
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </li>
+
+
+
+                </ul>
+
+
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<%- include ("../public/page_header.html") %>
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Modify navigation
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive input-form">
+            <form action="/<%=adminPath%>/nav/doEdit" method="post" id="form">
+                <input type="hidden" name="id" value="<%=list._id%>" />
+                <ul>
+                    <li> <span>Navigation name:</span> <input type="text" name="title" value="<%=list.title%>" /></li>
+                    <li> <span>Navigation link address:</span> <input type="text" name="link" value="<%=list.link%>"  /></li>
+                    <li> <span>Navigation position: </span>
+
+                        <select name="position" id="position">
+                            <option value="1" <%if(list.position==1){%>selected<%}%> >Top</option>
+                            <option value="2" <%if(list.position==2){%>selected<%}%> >Middle</option>
+                            <option value="3" <%if(list.position==3){%>selected<%}%> >Bottom</option>
+                        </select>
+                    </li>
+
+                    <li> <span>A new window opens: </span>
+                        <select name="is_opennew" id="is_opennew">
+                            <option value="1" <%if(list.is_opennew==1){%>selected<%}%>>No</option>
+                            <option value="2" <%if(list.is_opennew==2){%>selected<%}%> >Yes</option>
+                        </select>
+
+                    <li> <span>Sort:</span> <input type="text" name="sort" style="width:60px;" value="<%=list.sort%>" /></li>
+
+                    <li> <span>Status:</span>
+                        <input type="radio" name="status" <% if (list.status==1){%> checked  <%}%> value="1" id="a" /> <label for="a">Display</label>
+                        <input type="radio" name="status" <% if (list.status==0){%> checked  <%}%>  value="0" id="b" /><label for="b">Hide</label>
+                    </li>
+                    <li>
+                        <br />
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </li>
+
+
+
+                </ul>
+
+
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+
+</html>

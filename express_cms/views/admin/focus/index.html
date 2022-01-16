@@ -1,0 +1,64 @@
+<%- include ("../public/page_header.html")%>
+<div class="panel panel-default">
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr class="th">
+                    <th>Name</th>
+                    <th>Classification</th>
+                    <th>Picture</th>
+                    <th>Jump address</th>
+                    <th class="text-center">Sort</th>
+                    <th class="text-center">State</th>
+                    <th class="text-center">Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%for(var i=0;i<list.length;i++){%>
+                <tr>
+                    <td><%=list[i].title%></td>
+                    <td>
+
+                        <%if(list[i].type==1){%>
+                        Website
+                        <%}else if(list[i].type==2){%>
+                        App
+                        <%}else if(list[i].type==3){%>
+                        Applet                   
+                        <%}%>
+                    
+                    
+                    </td>
+                    <td>
+                        <%if(list[i].focus_img){%>
+                            <img src="/<%=list[i].focus_img%>" width="80" />                      
+                        <%}%>                     
+
+                    </td>
+
+
+                    <td><%=list[i].link%></td>
+                    <td class="text-center">
+                        
+                        <span class="chSpanNum" data-id="<%=list[i]._id%>" data-model="Focus" data-field="sort"><%=list[i].sort%></span>
+                    
+                    </span></td>
+                    <td align="center">
+                        <%if(list[i].status==1){%>
+                        <img src="/admin/images/yes.gif" class="chStatus" data-id="<%=list[i]._id%>" data-model="Focus" data-field="status" />
+
+                        <%}else{%>
+                        <img src="/admin/images/no.gif" class="chStatus" data-id="<%=list[i]._id%>" data-model="Focus" data-field="status" />
+                        <%}%>
+
+                     </td>
+
+                     <td class="text-center"><a href="/<%=adminPath%>/focus/edit?id=<%=list[i]._id%>">Modify</a>　　
+                        <a class="delete" href="/<%=adminPath%>/focus/delete?id=<%=list[i]._id%>">Delete</a></td>
+                </tr>
+                <%}%>
+            </tbody>
+        </table>
+    </div>
+
+</div>

@@ -1,0 +1,40 @@
+<%- include ("../public/page_header.html") %>
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Add rotation chart
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive input-form">
+            <form action="/<%=adminPath%>/focus/doAdd" method="post" enctype="multipart/form-data">
+                <ul>
+                    <li>  <span>Classification: </span>
+                        <select name="type" id="type">
+                            <option value="1">Website</option>
+                            <option value="2">APP</option>
+                            <option value="3">Applet</option>
+                        </select>
+                    </li>
+                    <li> <span>Name: </span> <input type="text" name="title"/></li>
+                    <li>  <span>Jump address:</span> <input type="text" name="link"/></li>
+                    <li>  <span>Rotation chart:</span> <input type="file" name="focus_img"/></li>
+                    <li> <span>Sort: </span> <input type="text" name="sort" value="1000"/></li>
+                    <li> <span>Status: </span> <input type="radio" name="status" checked value="1" id="a"/> <label for="a">显示</label>    <input type="radio" name="status" value="0" id="b"/><label for="b">Hide</label> 　</li>                  
+                    <li>
+                        <br/>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </li>
+
+                </ul>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+
+</html>

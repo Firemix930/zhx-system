@@ -1,0 +1,43 @@
+<%- include ("../public/page_header.html")%>      
+<div class="panel panel-default">
+
+    <!--
+        List display
+    -->
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr class="th">
+                    <th>Admin name</th>
+                    <th>Admin phone</th>
+                    <th>Admin mailbox</th>
+
+                    <th class="text-center">State</th>                                    
+                    <th class="text-center">Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <% for(var i=0;i<list.length;i++){ %>
+                    <tr>
+                        <td><%=list[i].username%></td>
+                        <td><%=list[i].mobile%></td>
+                        <td><%=list[i].email%></td>
+                        <td class="text-center"> 
+                            <%if(list[i].status==1){%>
+                                <img src="/admin/images/yes.gif" class="chStatus" data-id="<%=list[i]._id%>" data-model="Manager" data-field="status" />
+        
+                                <%}else{%>
+                                <img src="/admin/images/no.gif" class="chStatus" data-id="<%=list[i]._id%>" data-model="Manager" data-field="status" />
+                                <%}%>            
+                        </td>                                    
+                        <td class="text-center"><a href="/<%=adminPath%>/manager/edit?id=<%=list[i]._id%>">Modify</a>　　<a  class="delete" href="/<%=adminPath%>/manager/delete?id=<%=list[i]._id%>">Delete</a></td>
+                    </tr>
+                <%}%>
+              
+
+            </tbody>
+        </table>
+    </div>
+
+</div>

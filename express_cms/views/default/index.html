@@ -1,0 +1,196 @@
+<%- include("./public/page_header.html")%>
+
+	<link rel="stylesheet" href="/default/style/style.css">
+	<link rel="stylesheet" type="text/css" href="/default/style/swiper.min.css" />
+		
+	<body id="ios">
+		<%- include("./public/page_nav.html")%>
+		<div id="fh5co-press" data-section="press">
+
+			
+			<div id="banner-wrapper">
+
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<%for(var i=0;i<focusList.length;i++){%>
+							<div class="swiper-slide">
+								<a href="<%=focusList[i].link%>" target="_blank">
+									<img src="/<%=focusList[i].focus_img%>" alt="<%=focusList[i].title%>" />
+								</a>
+							</div>
+						<%}%>
+
+					</div>
+					<div class="swiper-pagination"></div>
+
+					<div class="swiper-button-prev swiper-button-white"></div>
+					<div class="swiper-button-next swiper-button-white"></div>
+
+				</div>
+
+			</div>
+
+			
+
+			<div data-anchor="about" class="section page3 noql fp-section active">
+				<div class="wrapper">
+					<div class="head">
+						
+
+					</div>
+					<div class="body">
+						<ul>
+
+							<li>
+								<a href="autochina2022/index.php?s=articles_150.html" target="_blank">
+									<div class="img">
+										<img style="height: auto; border-radius: 3px; width: 100%;" src="/default/images/intro_1458974456393_imgg.jpg">
+									</div>
+									<div class="brand">
+										<table>
+											<tbody>
+												<tr>
+													<td><img src="/default/images/dark.png"></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="autochina2022/index.php?s=articles_149.html" target="_blank">
+									<div class="img">
+										<img style="height: auto; border-radius: 3px; width: 100%;" src="/default/images/intro_1452859512140_09c.jpg">
+									</div>
+									<div class="brand">
+										<table>
+											<tbody>
+												<tr>
+													<td><img src="/default/images/zd.png"></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</a>
+							</li>
+
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			
+			<div data-anchor="cases" style="" class="section page4 noql fp-section active">
+				<div class="wrapper">
+					<div class="head">
+						<div class="img">
+							<img src="/default/images/img25.png">
+						</div>
+						<div class="nav">
+							<ul>
+
+								<li>
+									<a href="autochina2022/index.php?s=/lists_14.html"><img src="/default/images/img27.png"></a>
+								</li>
+							</ul>
+						</div>
+						<div class="list">
+							<dl id="dl1">
+								<dt>Housing news</dt>
+								<% for(var i=0; i < topNewsList.length; i++){%>
+									<dd>
+										<a href="content_<%=topNewsList[i]._id%>.html">0<%=i+1%><span>/</span><%=topNewsList[i].title%></a>
+									</dd>
+								<%}%>
+
+							</dl>
+
+						</div>
+					</div>
+					<div class="body">
+						<ul class="list">
+
+							<% for(var i=0; i < bestNewsList.length; i++){%>
+								<li>
+									<a href="content_<%=bestNewsList[i]._id%>.html">
+										<div class="view">
+											<div class="date">
+												<big><%=unixToDay(bestNewsList[i].add_time)%></big><span><%=unixToYearAndMonth(bestNewsList[i].add_time)%></span>
+											</div>
+											<div class="img">
+												<table>
+													<tbody>
+														<tr>
+															<td><img src="/<%=bestNewsList[i].article_img%>">
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<h4><%=bestNewsList[i].title%></h4>
+										</div>
+										<div class="mask" style="background: #0068b7 none repeat scroll 0 0;">
+
+											<h2><%=bestNewsList[i].title%></h2>
+											<hr>
+											<p><%=bestNewsList[i].description%></p>
+										</div>
+									</a>
+								</li>
+							<%}%>
+							
+
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			
+			<div class="section page5 noql fp-section active">
+
+					<div class="text">
+						<h2>Houses introduction</h2>
+						<p>The newly developed building in Haidian District, Beijing: "Greenland city" will be completed today.<br>
+						</p>
+
+						<p>The average house price in Beijing has hit a new record high.<br>,rising by about 3 percentage points every quarter
+							<br> The average house price has reached 20000 people's meters per square meter.
+						</p>
+
+						<p>Beijing epidemic prevention center reminds you:<br>Epidemic prevention is everyone's responsibility
+							<br> Minimize unnecessary going out.
+							<br> If you have to go out, please wear a mask with you.
+						</p>
+
+					</div>
+					<div class="nav">
+						<ul>
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<%- include("./public/page_footer.html")%>
+		<script type="text/javascript" src="/default/js/jquery.min.js"></script>
+		<script type="text/javascript" src="/default/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/default/js/swiper.min.js"></script>
+
+		<script>
+			var mySwiper = new Swiper('.swiper-container', {
+				autoplay: true,
+				loop : true,
+				pagination: {
+					el: '.swiper-pagination',
+				},
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				}
+
+			})
+		</script>
+	</body>
+
+</html>
