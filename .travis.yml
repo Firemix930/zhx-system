@@ -1,5 +1,0 @@
-language: nodejs
-
-before_script:
-    - npm install
-script: true
